@@ -8,7 +8,7 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/HawerPL/GitOps-PodInspector
+    repoURL: git@github.com:HawerPL/GitOps-PodInspector.git
     targetRevision: main
     path: clusters/k3s/apps
 

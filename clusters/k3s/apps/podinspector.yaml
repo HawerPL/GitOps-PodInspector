@@ -21,7 +21,7 @@ spec:
       targetRevision: main
       path: charts/PodInspector
 
-    - repoURL: https://github.com/HawerPL/GitOps-PodInspector
+    - repoURL: git@github.com:HawerPL/GitOps-PodInspector.git 
       targetRevision: main
       ref: values
 
