@@ -1,0 +1,53 @@
+image:
+  repository: "registry.hawer.eu/podinspector"
+  tag: "latest"
+  pullPolicy: IfNotPresent
+overrideNamespace: "monitoring"
+
+service:
+  annotations: {}
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: true
+  ingressClassName: traefik
+  annotations: {}
+  tls:
+    - hosts:
+        - hawer.k8s.eu
+      secretName: domain-certificate
+  rules:
+    - host: hawer.k8s.eu
+      name: "{{ .Release.Name }}-service"
+      port: 8080
+      pathType: Prefix
+      path: /
+
+podAnnotations:
+  k8s.grafana.com/scrape: 'true'
+  k8s.grafana.com/metrics.path: '/metrics'
+  k8s.grafana.com/job: "PodInspector"
+  k8s.grafana.com/metrics.portNumber: "8080"
+
+
+configuration:
+  appName: PodInspector
+  errorMode:
+    exception: 'false'
+    hardCrash: 'false'
+    softCrash: 'false'
+    log: 'false'
+    sigkill: 'false'
+    failureDelayMaxMinutes: 3600
+  profiling:
+    enabled: 'true'
+    auth:
+      enabled: 'false'
+      username: admin
+      password: admin
+    endpoint: http://pyroscope.k8s.eu
+  tracing:
+    enabled: 'false'
+    endpoint: http://k8s-monitoring-alloy-receiver:12345
+

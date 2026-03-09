@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: podinspector
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/HawerPL/PodInspector
+    targetRevision: main
+    path: charts/PodInspector
+
+    helm:
+      valueFiles:
+        - $values/apps/podinspector/values.yaml
+
+  sources:
+    - repoURL: https://github.com/HawerPL/PodInspector
+      targetRevision: main
+      path: charts/PodInspector
+
+    - repoURL: https://github.com/HawerPL/GitOps-PodInspector
+      targetRevision: main
+      ref: values
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: podinspector
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
