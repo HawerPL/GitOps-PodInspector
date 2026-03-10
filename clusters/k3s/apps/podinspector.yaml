@@ -13,6 +13,7 @@ spec:
     path: charts/PodInspector
 
     helm:
+      releaseName: podinspector
       valueFiles:
         - $values/apps/podinspector/values.yaml
 
