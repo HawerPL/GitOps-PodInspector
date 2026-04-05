@@ -43,11 +43,11 @@ configuration:
   profiling:
     enabled: 'true'
     auth:
-      enabled: 'false'
+      enabled: 'true'
       username: admin
       password: admin
-    endpoint: http://pyroscope.k8s.eu
+    endpoint: pyroscope.observability.svc:12345
   tracing:
-    enabled: 'false'
-    endpoint: http://k8s-monitoring-alloy-receiver:12345
+    enabled: 'true'
+    endpoint: k8s-monitoring-alloy-receiver.observability.svc:12345
 
