@@ -46,8 +46,8 @@ configuration:
       enabled: 'true'
       username: admin
       password: admin
-    endpoint: pyroscope.observability.svc:12345
+    endpoint: pyroscope.default.svc:4317
   tracing:
     enabled: 'true'
-    endpoint: k8s-monitoring-alloy-receiver.observability.svc:12345
+    endpoint: k8s-monitoring-alloy-receiver.default.svc:4317
 
