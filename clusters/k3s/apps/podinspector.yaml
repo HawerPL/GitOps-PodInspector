@@ -7,20 +7,14 @@ metadata:
 spec:
   project: default
 
-  source:
-    repoURL: https://github.com/HawerPL/PodInspector
-    targetRevision: main
-    path: charts/PodInspector
-
-    helm:
-      releaseName: podinspector
-      valueFiles:
-        - $values/apps/podinspector/values.yaml
-
   sources:
     - repoURL: https://github.com/HawerPL/PodInspector
       targetRevision: main
       path: charts/PodInspector
+      helm:
+        releaseName: podinspector
+        valueFiles:
+          - $values/apps/podinspector/values.yaml
 
     - repoURL: git@github.com:HawerPL/GitOps-PodInspector.git 
       targetRevision: main
