@@ -1,6 +1,6 @@
 image:
-  repository: "registry.hawer.eu/podinspector"
-  tag: "latest"
+  repository: "podinspector"
+  tag: "1.0.0"
   pullPolicy: IfNotPresent
 overrideNamespace: "monitoring"
 
