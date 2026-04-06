@@ -29,6 +29,14 @@ podAnnotations:
   k8s.grafana.com/metrics.path: '/metrics'
   k8s.grafana.com/job: "PodInspector"
   k8s.grafana.com/metrics.portNumber: "8080"
+  vault.hashicorp.com/agent-inject: "true"
+  vault.hashicorp.com/role: "podinspector"
+  vault.hashicorp.com/agent-inject-secret-app.env: "secret/data/podinspector/config"
+  vault.hashicorp.com/agent-inject-template-app.env: |
+    {{- with secret "secret/data/podinspector/config" -}}
+    export TEST1="{{ .Data.data.test1 }}"
+    export TEST2="{{ .Data.data.test2 }}"
+    {{- end }}
 
 
 configuration:
