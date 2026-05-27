@@ -4,6 +4,8 @@ image:
   pullPolicy: IfNotPresent
 overrideNamespace: "monitoring"
 
+environment: staging
+
 service:
   annotations: {}
   type: ClusterIP
@@ -23,6 +25,10 @@ ingress:
       port: 8080
       pathType: Prefix
       path: /
+      
+podLabels:
+  hawerpl/client: acme
+  hawerpl/environment: staging
 
 podAnnotations:
   k8s.grafana.com/scrape: 'true'
