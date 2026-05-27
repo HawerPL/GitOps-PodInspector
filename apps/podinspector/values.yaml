@@ -48,11 +48,11 @@ configuration:
   appName: PodInspector
   errorMode:
     exception: 'false'
-    hardCrash: 'false'
+    hardCrash: 'true'
     softCrash: 'false'
     log: 'false'
-    sigkill: 'true'
-    failureDelayMaxMinutes: 3
+    sigkill: 'false'
+    failureDelayMaxMinutes: 1
   profiling:
     enabled: 'true'
     auth:
