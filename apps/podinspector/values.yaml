@@ -51,8 +51,8 @@ configuration:
     hardCrash: 'false'
     softCrash: 'false'
     log: 'false'
-    sigkill: 'false'
-    failureDelayMaxMinutes: 3600
+    sigkill: 'true'
+    failureDelayMaxMinutes: 3
   profiling:
     enabled: 'true'
     auth:
